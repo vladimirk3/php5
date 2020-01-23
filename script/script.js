@@ -1,5 +1,4 @@
 $(window).on('load', function() {
-
     $('.win').css("display" , "none");
     $('.img_click').click(function(e) {
         e.preventDefault();
@@ -14,9 +13,9 @@ $(window).on('load', function() {
             url: "server.php",
             data: query,
             success: function(msg) {
-                console.log ("Прибыли данные" + query);
+                console.log ("Прибыли данные " + query);
             }
-        })
+        });
     });
     $('.close_win').click(function() {
         $(".win").fadeOut();

@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./script/jquery.js"></script>
     <script type="text/javascript" src="script/script.js"></script>
     <title>Gallery</title>
 </head>
@@ -15,15 +15,11 @@
 <?php
 include "config.php";
 include "server.php";
-$id = "";
-$sql_fetch = "SELECT * FROM images";
-$sql_sorted = "SELECT * FROM images ORDER BY count asc";
 
-
+$sql_sorted = "SELECT * FROM images ORDER BY count desc";
 
 //fetch data
-$query = mysqli_query($link, $sql_fetch);
-//$array = mysqli_fetch_assoc($query);
+$query = mysqli_query($link, $sql_sorted);
 
 //print pic
 while ($data = mysqli_fetch_assoc($query)) { ?>
@@ -33,12 +29,14 @@ while ($data = mysqli_fetch_assoc($query)) { ?>
 <?php
 }
 //test
-$query = mysqli_query($link, $sql_fetch);
-$path = "01.jpg";
-$sql_count = "SELECT * FROM images where path='$path'";
-$query1 = mysqli_query($link, $sql_count);
-$data_query = mysqli_fetch_assoc($query1);
-print_r($data_query["count"])
+//$query = mysqli_query($link, $sql_sorted);
+//$path = "01.jpg";
+//$sql_count = "SELECT * FROM images where path='$path'";
+//$query1 = mysqli_query($link, $sql_count);
+//$data_query = mysqli_fetch_assoc($query1);
+//print_r($data_query["count"])
+//$data_query["count"]
+
 ?>
 
 <div class="win">
@@ -49,7 +47,7 @@ print_r($data_query["count"])
         <div class="img_win">
             <img class="pic" src="" alt="big">
         </div>
-        <div>количество просмотров: <span .class="view"><?=print_r($data_query["count"])?></span></div>
+        <div><span .class="view"><?=$data_query["count"]?></span></div>
     </div>
 </div>
 
