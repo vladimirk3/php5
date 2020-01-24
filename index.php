@@ -14,7 +14,6 @@
 
 <?php
 include "config.php";
-include "server.php";
 
 $sql_sorted = "SELECT * FROM images ORDER BY count desc";
 
@@ -28,15 +27,6 @@ while ($data = mysqli_fetch_assoc($query)) { ?>
     </a>
 <?php
 }
-//test
-//$query = mysqli_query($link, $sql_sorted);
-//$path = "01.jpg";
-//$sql_count = "SELECT * FROM images where path='$path'";
-//$query1 = mysqli_query($link, $sql_count);
-//$data_query = mysqli_fetch_assoc($query1);
-//print_r($data_query["count"])
-//$data_query["count"]
-
 ?>
 
 <div class="win">
@@ -47,10 +37,9 @@ while ($data = mysqli_fetch_assoc($query)) { ?>
         <div class="img_win">
             <img class="pic" src="" alt="big">
         </div>
-        <div><span .class="view"><?=$data_query["count"]?></span></div>
+        <div>Количество просмотров: <span class="view"></span></div>
     </div>
 </div>
 
 </body>
 </html>
-<?=$data_query["count"]?>

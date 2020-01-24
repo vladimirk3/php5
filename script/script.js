@@ -5,7 +5,7 @@ $(window).on('load', function() {
         var link = $(this).attr('data-imglink');
         $('.pic').attr('src', link);
         console.log(link);
-        $(".win").fadeIn();
+        $('.win').fadeIn();
         query = "path="+link.split("/")[3];
         console.log(query);
         $.ajax ({
@@ -13,7 +13,10 @@ $(window).on('load', function() {
             url: "server.php",
             data: query,
             success: function(msg) {
-                console.log ("Прибыли данные " + query);
+                console.log (msg);
+                let res = JSON.parse(msg);
+                console.log (res [0] ["count"]);
+                $('.view').html(res [0] ["count"]);
             }
         });
     });
